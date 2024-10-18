@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact form</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./app.js"></script>
+</head>
+<body>
+    <div class="popup"></div>
+    <div class="form_box">
+        <h2>Contact Us</h2>
+        <form>
+
+
+            <div class="section1">
+                <div class="first_name">
+                    <label for="First_name">First Name <span class="star">*</span></label>
+                    <input autocomplete="off" id="First_name" type="text">
+                    <p class="error">1</p>
+                </div>
+
+                <div class="last_name">
+                    <label for="First_name">Last Name <span class="star">*</span></label>
+                    <input autocomplete="off" id="Last_name" type="text">
+                    <p class="error">1</p>
+                </div>
+            </div>
+
+
+
+
+            <div class="section2">
+                <label for="user_email">Email Address <span class="star">*</span></label>
+                <input autocomplete="off" id="user_email" type="text">
+                <p class="error">1</p>
+            </div>
+
+
+            <div class="section3">
+                <label>Query Type <span class="star">*</span></label>
+                <div class="box">
+                    <label class="custom_r">
+                        <input type="radio" name="option" value="1">
+                        <span class="checkmark"></span>
+                        <span>General Enquiry</span>
+                    </label>
+                    <label class="custom_r">
+                        <input type="radio" name="option" value="2">
+                        <span class="checkmark"></span>
+                        <span>Support Request</span>
+                    </label>
+                </div>
+                <p class="error"></p>
+            </div>
+
+
+
+            <div class="section4">
+                <label>Massage <span class="star">*</span></label>
+                <textarea name="textarea"></textarea>
+                <p class="error">as</p>
+            </div>
+
+
+            
+            <div class="section5">
+                <div class="box">
+                    <label class="custom_checkbox">
+                        <input id="question" type="checkbox" name="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <span>I consent to being contacted by the team <span class="star">*</span></span>
+                </div>
+                <p class="error">a</p>
+            </div>
+
+
+            
+            <button id="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
