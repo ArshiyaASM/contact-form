@@ -110,7 +110,6 @@ label{
     height: 16px;
     width: 16px;
     border: 1px solid hsl(186, 15%, 59%);;
-    display: inline-block;
     border-radius: 50%;
     margin-right: 20px;
 }
@@ -155,7 +154,7 @@ label{
     height: 16px;
     width: 16px;
     border: 1px solid hsl(186, 15%, 59%);
-    /* border-radius: 3px; */
+    border-radius: 3px;
     margin-right: 10px;
     display: inline-block;
 }
