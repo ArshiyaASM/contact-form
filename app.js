@@ -16,16 +16,14 @@ let check4 = false;
 let check5 = false;
 
 
-
-
 section1_input.forEach(item =>{
-    item.addEventListener("blur" , ()=> {
-        new Promise((resolve, reject)=>{
-            if(item.value.length == 0){
-                reject(item);
-            }else {
-                resolve(item);
-            }
+item.addEventListener("blur" , ()=> {
+    new Promise((resolve, reject)=>{
+        if(item.value.length == 0){
+            reject(item);
+        }else {
+            resolve(item);
+        }
         }).then((item)=>{
             return new Promise((resolve, reject)=>{
                 for(let element of item.value){
@@ -47,11 +45,44 @@ section1_input.forEach(item =>{
             item.nextElementSibling.style.visibility = "visible";
         })
     })
-})
+}) 
 
 
-section2_input.addEventListener("blur" , e =>{
-        new Promise((resolve, reject)=>{
+function Section1(){
+    section1_input.forEach(item => {
+        return new Promise((resolve, reject)=>{
+            if(item.value.length == 0){
+                reject(item);
+            }else {
+                resolve(item);
+            }
+            }).then((item)=>{
+                return new Promise((resolve, reject)=>{
+                    for(let element of item.value){
+                        const letter_checker = isNaN(element);
+                        if(!letter_checker){
+                            reject(item)
+                            return
+                        }
+                    }
+                    resolve(item)
+                })
+            }).then((item)=>{
+                check = true;
+                item.style.border = "1px solid gray";
+                item.nextElementSibling.style.visibility = "hidden";
+            }).catch((item)=>{
+                check = false;
+                item.style.border = "1px solid red";
+                item.nextElementSibling.style.visibility = "visible";
+            })
+    })
+}
+
+
+function section2() {
+    section2_input.addEventListener("blur" , () =>{
+        return new Promise((resolve, reject)=>{
             if(section2_input.value.length == 0){
                 reject(section2_input);
             }else {
@@ -76,7 +107,38 @@ section2_input.addEventListener("blur" , e =>{
             item.style.border = "1px solid red";
             item.nextElementSibling.style.visibility = "visible";
         })
-})
+    })
+}
+
+
+function Section2(){
+    return new Promise((resolve, reject)=>{
+        if(section2_input.value.length == 0){
+            reject(section2_input);
+        }else {
+            resolve(section2_input);
+        }
+    }).then((item)=>{
+        return new Promise((resolve, reject)=>{
+            for(let element of item.value){
+                if(element == "@"){
+                    resolve(item)
+                    return
+                }
+            }
+            reject(item)
+        })
+    }).then((item)=>{
+        check1 = true;
+        item.style.border = "1px solid gray";
+        item.nextElementSibling.style.visibility = "hidden";
+    }).catch((item)=>{
+        check1 = false;
+        item.style.border = "1px solid red";
+        item.nextElementSibling.style.visibility = "visible";
+    })
+}
+
 
 
 function Radio_btn_checker(){
@@ -151,6 +213,8 @@ section5_input.addEventListener("click", async ()=>{
 submit.addEventListener("click", async (eventObj)=>{
     await Radio_btn_checker();
     await Checkbox();
+    await Section1();
+    await Section2();
 
     if(check && check1 && check2 && check3 && check4){
         localStorage.setItem("check5" , "true");
