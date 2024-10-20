@@ -1,0 +1,44 @@
+
+
+
+@media screen and (min-width : 768px){
+    .form_box {
+        width: 700px;
+    }
+    .popup {
+        height: 120px ;
+        width: 500px;
+        top: 70px;
+    }
+
+    .popup .top {
+        font-size: 18px;
+    }
+    
+    .popup .bottom {
+        font-size: 16px;
+    }
+    
+
+    .form_box .section1 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form_box .section1 .first_name ,
+    .form_box .section1 .last_name {
+        width: 49%;
+        /* padding: 10px; */
+    }
+
+    .form_box .section3 .box {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form_box .section3 .box .custom_r{
+        width: 49%;
+    }
+    
+
+}
