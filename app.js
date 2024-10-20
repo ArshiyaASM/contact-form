@@ -152,7 +152,6 @@ submit.addEventListener("click", async (eventObj)=>{
     await Radio_btn_checker();
     await Checkbox();
 
-    console.log(check2, check4)
     if(check && check1 && check2 && check3 && check4){
         localStorage.setItem("check5" , "true");
     }
