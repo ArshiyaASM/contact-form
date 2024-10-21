@@ -11,11 +11,10 @@
 
 body {
     background-color:  hsl(148, 38%, 91%);
-    height: 100vh;
+    padding: 100px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
     position: relative;
 }
 
@@ -24,7 +23,7 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    width: 350px;
 }
 
 .form_box h2 {

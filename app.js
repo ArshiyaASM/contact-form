@@ -16,40 +16,7 @@ let check4 = false;
 let check5 = false;
 
 
-section1_input.forEach(item =>{
-item.addEventListener("blur" , ()=> {
-    new Promise((resolve, reject)=>{
-        if(item.value.length == 0){
-            reject(item);
-        }else {
-            resolve(item);
-        }
-        }).then((item)=>{
-            return new Promise((resolve, reject)=>{
-                for(let element of item.value){
-                    const letter_checker = isNaN(element);
-                    if(!letter_checker){
-                        reject(item)
-                        return
-                    }
-                }
-                resolve(item)
-            })
-        }).then((item)=>{
-            check = true;
-            item.style.border = "1px solid gray";
-            item.nextElementSibling.style.visibility = "hidden";
-        }).catch((item)=>{
-            check = false;
-            item.style.border = "1px solid red";
-            item.nextElementSibling.style.visibility = "visible";
-        })
-    })
-}) 
-
-
-function Section1(){
-    section1_input.forEach(item => {
+function Section1(item){
         return new Promise((resolve, reject)=>{
             if(item.value.length == 0){
                 reject(item);
@@ -76,12 +43,18 @@ function Section1(){
                 item.style.border = "1px solid red";
                 item.nextElementSibling.style.visibility = "visible";
             })
-    })
 }
 
 
-function section2() {
-    section2_input.addEventListener("blur" , () =>{
+section1_input.forEach(item => {
+    item.addEventListener("blur" , ()=> {
+        Section1(item)
+    })
+    
+})
+
+
+function Section2() {
         return new Promise((resolve, reject)=>{
             if(section2_input.value.length == 0){
                 reject(section2_input);
@@ -107,8 +80,12 @@ function section2() {
             item.style.border = "1px solid red";
             item.nextElementSibling.style.visibility = "visible";
         })
-    })
 }
+
+section2_input.addEventListener("blur" , () =>{
+    Section2()
+})
+
 
 
 function Section2(){
@@ -138,6 +115,8 @@ function Section2(){
         item.nextElementSibling.style.visibility = "visible";
     })
 }
+
+
 
 
 
@@ -213,7 +192,14 @@ section5_input.addEventListener("click", async ()=>{
 submit.addEventListener("click", async (eventObj)=>{
     await Radio_btn_checker();
     await Checkbox();
-    await Section1();
+    await section1_input.forEach(item => {
+        item.addEventListener("blur" , ()=> {
+            Section1(item)
+        })
+    })
+
+    await Section2();
+    
     await Section2();
 
     if(check && check1 && check2 && check3 && check4){
