@@ -46,11 +46,11 @@ function Section1(item){
 }
 
 
+
 section1_input.forEach(item => {
     item.addEventListener("blur" , ()=> {
         Section1(item)
     })
-    
 })
 
 
@@ -192,15 +192,12 @@ section5_input.addEventListener("click", async ()=>{
 submit.addEventListener("click", async (eventObj)=>{
     await Radio_btn_checker();
     await Checkbox();
-    await section1_input.forEach(item => {
-        item.addEventListener("blur" , ()=> {
-            Section1(item)
-        })
+    section1_input.forEach(item => {
+        Section1(item)
     })
 
     await Section2();
     
-    await Section2();
 
     if(check && check1 && check2 && check3 && check4){
         localStorage.setItem("check5" , "true");
